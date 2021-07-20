@@ -36,6 +36,15 @@ Como se fossem atributos, no entanto podemos passar propriedades para um
 determinado componente a partir de outro componente e receber esse valor por meio
 do atributo props do componente receptor.
 
+Props são somente leitura, portanto não crie componentes que alterem props que
+chegam, apenas crie lógicas que a implemente na interface. Além disso, as chamadas
+funções puras devem ter o mesmo retorno para o mesmo tipo de argumento.
+
+Ou seja, devemos construir componentes(que são funções no JS) de forma a receber
+props, mas não alterá-las e continuar produzindo o mesmo retorno com o mesmo tipo
+de props.
+**TODO COMPONENTE REACT DEVE AGIR COMO UMA FUNÇÃO PURA**
+
 ### Estados
 
 Cada componente possui estados de atributos atrelados a ele. Podemos monitorar
