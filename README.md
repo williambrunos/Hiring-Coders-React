@@ -24,6 +24,11 @@ O arquivo app.js é responsável por retornar todos os componentes que desejamos
 para nossa aplicação web. O arquivo index.js recebe todos esses componentes e
 utiliza função render do react DOM para renderizá-los no arquivo index.html
 
+O React cria por si só a react DOM, uma DOM virtual mais rápida que a do browser.
+O react DOM é responsável por gerenciar os componentes da interface e atualizá-los
+quando necessário. É importante salientar, que a react DOM monitora e atualiza
+apenas os componentes necessários, evitando atualizações desnecessárias.
+
 ### JSX
 
 Como escrevemos componentes web como funções JS que retornam um HTML, temos então
