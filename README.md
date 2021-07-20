@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# O que é o React?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Lib de JS criado para criação de SPA's.
 
-## Available Scripts
+## Vantagens
 
-In the project directory, you can run:
+* Organização do código em componentes, tudo na página web é um componente.
+* O funcionamento de um componente não interfere no outro.
+* Cada componente da web pode fazer sua própria requisição para uma API.
+* Programação declarativa: solicitamos uma função e o react se encarrega do resto.
 
-### `yarn start`
+## Fundamentos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Estrutura do código
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+O arquivo app.js retorna os componentes passados em seu return. O mesmo é renderizado
+pelo arquivo index.js utilizando o react DOM, responsável por renderizar todos os
+componentes retornados por app.js na div com id="root"(a que engloba nossa aplicação)
+presente em index.html
 
-### `yarn test`
+### Renderização
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O arquivo app.js é responsável por retornar todos os componentes que desejamos
+para nossa aplicação web. O arquivo index.js recebe todos esses componentes e
+utiliza função render do react DOM para renderizá-los no arquivo index.html
 
-### `yarn build`
+### JSX
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Como escrevemos componentes web como funções JS que retornam um HTML, temos então
+o chamado JSX, uma mistura de JS com HTML. Só podemos retornar um único componente
+de cada função, portanto usamos a tag fragment <></>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Propriedades
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Como se fossem atributos, no entanto podemos passar propriedades para um
+determinado componente a partir de outro componente e receber esse valor por meio
+do atributo props do componente receptor.
 
-### `yarn eject`
+### Estados
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Cada componente possui estados de atributos atrelados a ele. Podemos monitorar
+os estados de um componente através do useState.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+````JS
+import { useState } from 'react'
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+// Retorna um array com o valor e uma função para atualizar o valor
+const [ value, setValue ] = useState(initialValue)
+````
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+A função retornada pelo useState é responsável por atualizar o valor da variável,
+visto que, pelo conceito da imutabilidade, ela deve ser atualizada dessa forma a fim
+de que seja renderizada propriamente na tela, e não apenas com variável = 1 ou coisa
+do tipo.
 
-## Learn More
+### Fluxo de Dados
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+O fluxo de dados de componentes em React é unidirecional, do componente pai para
+o componente filho.
