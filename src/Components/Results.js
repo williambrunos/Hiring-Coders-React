@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Styles/Results.css';
 
 export default function Results(props) {
   const n1 = props.n1;
