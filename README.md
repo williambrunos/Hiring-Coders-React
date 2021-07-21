@@ -71,3 +71,9 @@ do tipo.
 
 O fluxo de dados de componentes em React é unidirecional, do componente pai para
 o componente filho.
+
+### CSS + React
+
+Para cada componente react, devemos ter um arquivo de estilização css. Para isso,
+escrevemos a estilização de acordo com os elementos de um componente e importamos
+o css para o arquivo onde se encontra o componente.
